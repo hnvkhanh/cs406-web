@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDropzone } from "react-dropzone";
 import { Button, Typography, Box } from "@mui/material";
 import ImageComponent from "./Image";
