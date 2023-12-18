@@ -8,6 +8,7 @@ import {
   Box,
   Button,
   Divider,
+  CircularProgress,
 } from "@mui/material";
 import UploadComponent from "./UploadComponent";
 import { mobilenetDemo, predict } from "./utils";
@@ -59,7 +60,7 @@ const App = () => {
             display: "flex",
             justifyContent: "end",
             width: "100%",
-            margin: "20px"
+            margin: "20px",
           }}
         >
           <Button
@@ -75,7 +76,10 @@ const App = () => {
 
         {!model && (
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Loading model...
+            <p>Loading model...</p>
+            <div style={{ textAlign: "center" }}>
+              <CircularProgress />
+            </div>
           </Typography>
         )}
 
