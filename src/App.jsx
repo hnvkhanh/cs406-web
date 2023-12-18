@@ -7,6 +7,7 @@ import {
   CssBaseline,
   Box,
   Button,
+  Divider,
 } from "@mui/material";
 import UploadComponent from "./UploadComponent";
 import { mobilenetDemo, predict } from "./utils";
@@ -43,7 +44,7 @@ const App = () => {
       <AppBar position="fixed" style={{ width: "100%" }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Image Enhancement App
+            MobileNet Object Classification - Demo with Tensorflow.js + ReactJS
           </Typography>
         </Toolbar>
       </AppBar>
@@ -53,8 +54,30 @@ const App = () => {
           uploadedImage={uploadedImage}
           setUploadedImage={setUploadedImage}
         />
-        <Button variant="contained" onClick={hanldeClick} disabled={!model}>Predict</Button>
-        <hr style={{ margin: "20px 0" }} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "end",
+            width: "100%",
+            margin: "20px"
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={hanldeClick}
+            disabled={!model}
+            style={{ width: "200px", height: "50px" }}
+          >
+            Predict
+          </Button>
+        </div>
+        <Divider />
+
+        {!model && (
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Loading model...
+          </Typography>
+        )}
 
         {data && <BasicTable rows={data} />}
       </Container>
